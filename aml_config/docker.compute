@@ -1,0 +1,2 @@
+type: "docker"
+baseDockerImage: "microsoft/mmlspark:0.7"
