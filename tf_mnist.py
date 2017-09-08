@@ -11,9 +11,9 @@ from __future__ import print_function
 
 import tensorflow as tf
 import pandas
-from azureml.sdk import data_collector
+from azureml.logging import get_azureml_logger
 
-run_logger = data_collector.current_run()
+run_logger = get_azureml_logger()
 
 # Import MNIST data
 from tensorflow.examples.tutorials.mnist import input_data
@@ -130,12 +130,12 @@ with tf.Session() as sess:
             print("Iter " + str(step*batch_size) + ", Minibatch Loss= " + \
                   "{:.6f}".format(loss) + ", Training Accuracy= " + \
                   "{:.5f}".format(acc))
-            metrics.append({'Accuracy': acc})
-            losses.append({'Loss': loss})
+            metrics.append(acc)
+            losses.append(loss)
         step += 1
     print("Optimization Finished!")
-    run_logger.log(pandas.DataFrame(metrics))
-    run_logger.log(pandas.DataFrame(losses))
+    run_logger.log("Accuracy", metrics)
+    run_logger.log("Loss", losses)
 
     # Calculate accuracy for 256 mnist test images
     print("Testing Accuracy:", \
