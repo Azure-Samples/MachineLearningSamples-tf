@@ -130,8 +130,10 @@ with tf.Session() as sess:
             print("Iter " + str(step*batch_size) + ", Minibatch Loss= " + \
                   "{:.6f}".format(loss) + ", Training Accuracy= " + \
                   "{:.5f}".format(acc))
-            metrics.append(acc)
-            losses.append(loss)
+
+            # must convert numpy.float32 to float for the logging API
+            metrics.append(float(acc))
+            losses.append(float(loss))
         step += 1
     print("Optimization Finished!")
     run_logger.log("Accuracy", metrics)
