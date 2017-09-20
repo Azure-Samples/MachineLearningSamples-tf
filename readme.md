@@ -17,10 +17,10 @@ $ az ml experiment submit -c myvm tf_mnist.py
 ```
 
 Run tf_mnist.py in a Docker container in a remote machine with GPU.
-- Create a new compute context, nam it _gpu_ (or any arbitary name)
+- Create a new compute context, name it _gpu_ (or any arbitary name)
 - Use _az ml computetarget attach_ to target the GPU equipped VM.
 - In **conda_dependencies.yml** file, use _tensorflow-gpu_ instead of _tensorflow_.
-- In **gpu.compute** file, use _microsoft/mmlspark:gpu_ as the base Docker image.
+- In **gpu.compute** file, use _microsoft/mmlspark:plus-gpu-0.7.91_ as the base Docker image.
 - In **gpu.compute** file, add a line _nvidiaDocker: true_
 - In **gpu.runconfig** file, set _Framework_ to _Python_
 - Now run the script.
