@@ -1,8 +1,5 @@
-# To run the below script on GPU in a Docker container on a Linux VM, do the following:
-# In conda_dependencies.yml file, using tensorflow-gpu (vs. tensorflow)
-# In your GPU VM .compute file, set teh baseDockerImage to nvidia/cuda:8.0-cudnn6-devel-ubuntu16.04
-# In your GPU VM .compute file, add a line: nvidiaDocker: true
-# And, in your GPU VM .runconfig file, make sure the Framework is set to "Python" (vs. "PySpark")
+# To run the below script on GPU in a Docker container on a Linux VM,
+# follow the instructions in the readme file.
 
 import tensorflow as tf
 
