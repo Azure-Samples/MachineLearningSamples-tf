@@ -70,7 +70,7 @@ $ az ml experiment submit -c myvm tf_mnist.py
 ## Running it on a VM with GPU
 With computationally expensive tasks like training a neural network, you can get a huge performance boost by running it on a GPU-equipped machine.
 
->Note, if your local machine already has NVidia GPU chips, and you have installed the CUDA libraries and toolkits, you can directly run the script using local compute target. The below instructions are specifically for running script in a remote VM equipped with GPU.
+>Note, if your local machine already has NVidia GPU chips, and you have installed the CUDA libraries and toolkits, you can directly run the script using local compute target. Just be sure to pip-install the _tensorflow-gpu_ Python package. The below instructions are specifically for running script in a remote VM equipped with GPU.
 
 ### Step 1. Provision a GPU Linux VM 
 Create an Ubuntu-based Data Science Virtual Machine(DSVM) in Azure portal using one of the NC-series VM templates. NC-series VMs are the VMs equipped with GPUs for computation.
