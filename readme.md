@@ -89,7 +89,7 @@ The above command creates a `myvm.compute` and `myvm.runconfig` file under the `
 
 - You need a different base Docker image with CUDA libraries preinstalled:
 
-    In `myvm.compute` file, replace the value of `baseImage` from `microsoft/mmlspark:plus-0.7.91` to  `microsoft/mmlspark:gpu-plus-0.7.91`
+    In `myvm.compute` file, replace the value of `baseImage` from `microsoft/mmlspark:plus-0.7.91` to  `microsoft/mmlspark:plus-gpu-0.7.91`
 
 - You need to use _NvidiaDocker_ command to start the Docker container as opposed to the regular _docker_ command.
 
@@ -102,6 +102,6 @@ The above command creates a `myvm.compute` and `myvm.runconfig` file under the `
 ### Step 4. Run the script.
 Now you are ready to run the script.
 ```
-$ az ml experiment submit -c gpu tf_mnist.py
+$ az ml experiment submit -c myvm tf_mnist.py
 ```
 You should notice the script finishes significantly faster than than if you use CPU. And the command-line outputs should indicate that GPU is used for executing this script.
