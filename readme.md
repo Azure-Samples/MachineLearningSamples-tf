@@ -31,7 +31,7 @@ run_logger.log("Loss", losses)
 
 By adding the above logging code, when the run finishes, you can find a graph plotted for you in the run history detail page.
 
-![cover](./docs/cover.png)
+![cover](./docs/metrics.png)
 
 ## Instructions for running scripts from CLI window
 You can run the scripts from the Workbench app, but it is more interesting to run it from the command-line window so you can watch the feedback in real-time.
@@ -56,6 +56,12 @@ $ az ml experiment submit -c docker tf_mnist.py
 
 Run tf_mnist.py in a Docker container in a remote machine. Note you need to create/configure myvm.compute.
 ```
+# attach a new compute context
+$ az ml computetarget attach --name myvm --address <ip address or FQDN> --username <username> --password <pwd> --type remotedocker
+
+# prepare the environment
+$ az ml experiment prepare -c myvm
+
 $ az ml experiment submit -c myvm tf_mnist.py
 ```
 
