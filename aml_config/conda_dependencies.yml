@@ -18,6 +18,7 @@ dependencies:
   - python=3.5.2
   - pandas
   - tensorflow
+  - scikit-image
 
   # Required for Jupyter Notebooks.
   - ipykernel=4.6.1
@@ -28,7 +29,7 @@ dependencies:
   - pip:
     # The API for Azure Machine Learning Model Management Service.
     # Details: https://github.com/Azure/Machine-Learning-Operationalization
-    - azure-ml-api-sdk==0.1.0a11
+    - azure-ml-api-sdk==0.1.0a10
 
     # Library for collecting data from operationalized models
     - azureml.datacollector==0.1.0a13

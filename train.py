@@ -21,7 +21,7 @@ mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
 
 # Parameters
 learning_rate = 0.001
-training_iters = 200000
+training_iters = 20000
 batch_size = 128
 display_step = 10
 
@@ -31,9 +31,9 @@ n_classes = 10 # MNIST total classes (0-9 digits)
 dropout = 0.75 # Dropout, probability to keep units
 
 # tf Graph input
-x = tf.placeholder(tf.float32, [None, n_input])
+x = tf.placeholder(tf.float32, [None, n_input], name = 'inputimage')
 y = tf.placeholder(tf.float32, [None, n_classes])
-keep_prob = tf.placeholder(tf.float32) #dropout (keep probability)
+keep_prob = tf.placeholder(tf.float32, name = 'dropout') #dropout (keep probability)
 
 
 # Create some wrappers for simplicity
@@ -98,6 +98,7 @@ biases = {
 
 # Construct model
 pred = conv_net(x, weights, biases, keep_prob)
+maxPred = tf.argmax(pred, 1, name = 'predout')
 
 # Define loss and optimizer
 cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits=pred, labels=y))
@@ -109,6 +110,9 @@ accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
 # Initializing the variables
 init = tf.global_variables_initializer()
+
+# create a saver
+saver = tf.train.Saver()
 
 # Launch the graph
 with tf.Session() as sess:
@@ -138,6 +142,9 @@ with tf.Session() as sess:
     print("Optimization Finished!")
     run_logger.log("Accuracy", metrics)
     run_logger.log("Loss", losses)
+
+    # save the trained model
+    saver.save(sess, '/tmp/model/my_ConvNet_MNIST_model')
 
     # Calculate accuracy for 256 mnist test images
     print("Testing Accuracy:", \
