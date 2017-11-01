@@ -42,7 +42,7 @@ $ python test.py
 
 IMPORTANT NOTE: The web service driver in this example only accepts image in the same size of 28\*28 as the original MNIST data. If one wishes to score an image in a different size, he/she must resize the image into 28\*28 before encoding the pixel values into the payload, or re-code the web service driver to handle image resizing.
 
-## Deploying the scoring service
+## Deploy the scoring service
 
 Now that the webservice driver works properly, one may proceed to deploy the scoring webservice according to the [instructions](https://docs.microsoft.com/en-us/azure/machine-learning/preview/deployment-setup-configuration). Pay attention to `conda_dependencies.yml` where both tensorflow and scikit-image must be declared. Also pay attention to the fact that all model files must be included in the deployment, and to this end one may run the following in the command line interface
 ```
