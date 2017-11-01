@@ -4,7 +4,7 @@ This sample uses [TensorFlow](https://www.tensorflow.org/) and the [MNIST datase
 
 ## Train the model locally
 
-To use TensorFlow, one must install it. Open the command-line window by clicking on **File** --> **Open Command Prompt*. Then in local Python environment installed by Azure ML Workbench, type in the following command.
+To use TensorFlow, one must install it. Open the command-line window by clicking on **File** --> **Open Command Prompt**. Then in local Python environment installed by Azure ML Workbench, type in the following command.
 ```
 # Install tensorflow using pip, you only needed to do this once.
 $ pip install tensorflow
