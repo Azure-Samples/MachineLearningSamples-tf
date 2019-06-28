@@ -1,5 +1,7 @@
 # Classify MNIST dataset using TensorFlow
 
+> **NOTE** This content is no longer maintained. Visit the [Azure Machine Learning Notebook](https://github.com/Azure/MachineLearningNotebooks) project for sample Jupyter notebooks for ML and deep learning with Azure Machine Learning.
+
 This sample uses the popular [TensorFlow](https://www.tensorflow.org/) machine learning library from Google to classify the ageless [MNIST dataset](http://yann.lecun.com/exdb/mnist/) of handwritten digits.
 
 ## Logging code
