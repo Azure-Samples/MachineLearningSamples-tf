@@ -101,7 +101,13 @@ The above command creates a `myvm.compute` and `myvm.runconfig` file under the `
 
     In `myvm.runconfig` file,  change the value of `Framework` from `PySpark` to `Python`.
 
-### Step 4. Run the script.
+### Step 4. Prepare the Docker image
+After changing the `baseImage`, you need to prepare the VM again.
+```
+$ az ml experiment prepare -c myvm
+```
+
+### Step 5. Run the script.
 Now you are ready to run the script.
 ```
 $ az ml experiment submit -c myvm tf_mnist.py
